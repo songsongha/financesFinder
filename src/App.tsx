@@ -2,8 +2,8 @@ import * as React from 'react'
 import { useQuery } from 'react-query'
 import { getData, getProfile } from './utils/api'
 import SearchBar from './components/SearchBar/SearchBar'
-import BasicTable from './components/SearchBar/BasicTable/BasicTable'
-import { BasicTableType } from './components/SearchBar/BasicTable/BasicTable'
+import BasicTable from './components/BasicTable/BasicTable'
+import { BasicTableType } from './components/BasicTable/BasicTable'
 
 function App() {
     const [search, setSearch] = React.useState('')
