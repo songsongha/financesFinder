@@ -4,3 +4,6 @@
     align-items: center;
     gap: 1rem;
 }
+.body {
+    padding-right: 2rem;
+}

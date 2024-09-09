@@ -36,7 +36,9 @@ function App() {
                 </Typography>
                 <SearchBar setSearchQuery={setSearch} />
             </Box>
-            <BasicTable data={companyData} handleRowClick={handleOpen} />
+            <Box className='body'>
+                <BasicTable data={companyData} handleRowClick={handleOpen} />
+            </Box>
             <ChartModal showModal={showModal} rowData={rowData} handleClose={handleClose} />
         </>
     )
