@@ -5,15 +5,15 @@ import TableContainer from '@mui/material/TableContainer'
 import TableHead from '@mui/material/TableHead'
 import TableRow from '@mui/material/TableRow'
 import Paper from '@mui/material/Paper'
+import { CompanyDataType } from '../../hooks/useGetCompanyData'
 
-export type BasicTableType = {
-    symbol: string
-    name: string
-    address: string
-    stockExchange: string
-}
-
-export default function BasicTable({ data }: { data: BasicTableType[] }) {
+export default function BasicTable({
+    data,
+    handleRowClick
+}: {
+    data: CompanyDataType[]
+    handleRowClick: (row: CompanyDataType) => void
+}) {
     return (
         <TableContainer component={Paper}>
             <Table sx={{ minWidth: 650 }} aria-label='simple table'>
@@ -27,7 +27,14 @@ export default function BasicTable({ data }: { data: BasicTableType[] }) {
                 </TableHead>
                 <TableBody>
                     {data.map((row) => (
-                        <TableRow key={row.symbol} sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
+                        <TableRow
+                            onClick={() => handleRowClick(row)}
+                            hover
+                            key={row.symbol}
+                            sx={{
+                                '&:last-child td, &:last-child th': { border: 0 }
+                            }}
+                        >
                             <TableCell component='th' scope='row'>
                                 {row.name}
                             </TableCell>
