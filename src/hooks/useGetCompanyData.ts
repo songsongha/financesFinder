@@ -40,7 +40,7 @@ export const useGetCompanyData = (search: string) => {
         return (
             generalData?.map((item: any) => {
                 const { symbol, name, exchangeShortName } = item
-                const profile = profileData?.find((element: any) => element.symbol === symbol)
+                const profile: any = profileData?.find((element: any) => element.symbol === symbol)
                 return {
                     symbol,
                     name,
