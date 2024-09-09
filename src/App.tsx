@@ -3,6 +3,8 @@ import SearchBar from './components/SearchBar/SearchBar'
 import BasicTable from './components/BasicTable/BasicTable'
 import { CompanyDataType, useGetCompanyData } from './hooks/useGetCompanyData'
 import ChartModal from './components/ChartModal/ChartModal'
+import { Box, Typography } from '@mui/material'
+import './App.css'
 
 function App() {
     const [search, setSearch] = React.useState('')
@@ -28,8 +30,12 @@ function App() {
 
     return (
         <>
-            {isLoading ? 'loading!!!' : 'Hello World'}
-            <SearchBar setSearchQuery={setSearch} />
+            <Box className='header'>
+                <Typography variant='h4' className='title'>
+                    Finances Finder
+                </Typography>
+                <SearchBar setSearchQuery={setSearch} />
+            </Box>
             <BasicTable data={companyData} handleRowClick={handleOpen} />
             <ChartModal showModal={showModal} rowData={rowData} handleClose={handleClose} />
         </>
