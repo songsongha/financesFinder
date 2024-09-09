@@ -8,7 +8,7 @@ When a user enters a company name or stock symbol into the search bar the table 
 
 1. Clone the repo
     ```sh
-    git clone https://github.com/songsongha/stockSearch.git
+    git clone https://github.com/songsongha/financesFinder.git
     ```
 2. Install NPM packages
     ```sh
@@ -34,27 +34,41 @@ The app a create-vite project built with React and Typescript. It consists of th
 
 ### Data Management
 
-Data is pulled from the [https://site.financialmodelingprep.com/developer/docs] (Financial Modeling Prep) site. React Query is used to cache data so that load time are faster for the user. A custom hook was created to combine the data from the general company api (which allows for search by company name and by stock symbol) with more detailed company information such as the address and current stock price. The generalData api call was limited to NYSE and NASDAQ because when making calls to the profile endpoint because I learned that the free plan is limited to US stocks only and I wanted to avoid errors when doing bulk requests. The generalData api call is also limited to 10 entries since pagination is not available on that endpoint and I wanted to ensure a reasonable number of entries is delivered in the interest of performance.
+Data is pulled from the [https://site.financialmodelingprep.com/developer/docs](Financial Modeling Prep) site.
+
+-   React Query is used to cache data so that load time are faster for the user.
+-   A custom hook was created to combine the data from the general company api (which allows for search by company name and by stock symbol) with more detailed company information such as the address and current stock price.
+-   The generalData api call was limited to NYSE and NASDAQ because when making calls to the profile endpoint because I learned that the free plan is limited to US stocks only and I wanted to avoid errors when doing bulk requests.
+-   The generalData api call is also limited to 10 entries since pagination is not available on that endpoint and I wanted to ensure a reasonable number of entries is delivered in the interest of performance.
 
 ### SearchBar
 
-The search bar is a simple text input that takes in a setStateAction as a prop and on input set the state in the parent component to the value input into the text field. A debounce function is used reduce the number of calls to the api when the user is typing.
+-   The search bar is a simple text input that takes in a setStateAction as a prop and on input set the state in the parent component to the value input into the text field.
+-   A debounce function is used reduce the number of calls to the api when the user is typing.
 
 ### BasicTable
 
-The table displays data passed in from the parent component. The address is formatted to be on two lines for easier reading and to handle situations where some address field are missing. The table has a maximum width to ensure the table still looks good for wider screens. Row data is passed to the modal component on click.
+-   The table displays data passed in from the parent component. Row data is passed to the modal component on click.
+-   The address is formatted to be on two lines for easier reading and to handle situations where some address field are missing.
+-   The table has a maximum width to ensure the table still looks good for wider screens.
 
 ### ChartModal
 
-This component is responsive, for small screen sizes the charts will stack vertically and for larger screens the graphs will be side by side.
+-   This component is a responsive view of the charts and stock price info; for small screen sizes the charts will stack vertically and for larger screens the graphs will be side by side.
 
 ### StockPriceChart
 
-The charts were was built using the Recharts library. It display the daily opening stock prices and the data is sorted to ensure that the chart is showing the data in ascending order by date. If you hover over the chart a tooltip will display the detailed values. If there is no data available that text will be displayed instead of the chart.
+-   The charts were was built using the Recharts library.
+-   It display the daily opening stock prices and the data is sorted to ensure that the chart is showing the data in ascending order by date
+    \*If you hover over the chart a tooltip will display the detailed values.
+-   If there is no data available that text will be displayed instead of the chart.
 
 ### CashFlowChart
 
-The historical cash flow chart is a composite charge with stacked bars to show the three types of cash flow overlayed with a line graph showing net change in cash. The y axis is formatted with large number abbreviations for readability.
+-   The historical cash flow chart is a composite charge with stacked bars to show the three types of cash flow overlayed with a line graph showing net change in cash.
+-   The y axis is formatted with large number abbreviations for readability.
+-   If you hover over the chart a tooltip will display the detailed values.
+-   If there is no data available that text will be displayed instead of the chart.
 
 ### Future Considerations
 
