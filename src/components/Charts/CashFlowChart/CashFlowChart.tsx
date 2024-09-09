@@ -4,12 +4,9 @@ import { getCashFlowData } from '../../../utils/api'
 import { Box } from '@mui/material'
 
 export function CashFlowChart({ ticker }: { ticker: string }) {
-    console.log({ ticker })
-
-    const { data, isLoading } = useQuery(['getCashFlowData', ticker], () => getCashFlowData(ticker), {
+    const { data } = useQuery(['getCashFlowData', ticker], () => getCashFlowData(ticker), {
         enabled: !!ticker
     })
-    console.log({ data })
 
     const formatYAxisLabel = (value: number) => {
         if (value >= 1000000000 || value <= -1000000000) {

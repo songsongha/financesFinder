@@ -18,7 +18,7 @@ function App() {
     })
     const [showModal, setShowModal] = React.useState(false)
 
-    const { companyData, isLoading } = useGetCompanyData(search)
+    const { companyData } = useGetCompanyData(search)
 
     const handleOpen = (row: CompanyDataType) => {
         setRowData(row)

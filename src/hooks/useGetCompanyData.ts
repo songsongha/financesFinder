@@ -34,8 +34,6 @@ export const useGetCompanyData = (search: string) => {
             enabled: !!generalData?.length
         }
     )
-    console.log({ generalData })
-    console.log({ profileData })
 
     const companyData: CompanyDataType[] = React.useMemo(() => {
         return (
