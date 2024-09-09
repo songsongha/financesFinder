@@ -26,7 +26,7 @@ When a user enters a company name or stock symbol into the search bar the table 
     ```sh
     yarn dev
     ```
-4. In your browser navigate [http://localhost:5173/](http://localhost:5173/)
+4. In your browser navigate to [http://localhost:5173/](http://localhost:5173/)
 
 ## Function and Considerations
 
@@ -60,12 +60,12 @@ Data is pulled from the [https://site.financialmodelingprep.com/developer/docs](
 
 -   The charts were was built using the Recharts library.
 -   It display the daily opening stock prices and the data is sorted to ensure that the chart is showing the data in ascending order by date
-    \*If you hover over the chart a tooltip will display the detailed values.
+-   If you hover over the chart a tooltip will display the detailed values.
 -   If there is no data available that text will be displayed instead of the chart.
 
 ### CashFlowChart
 
--   The historical cash flow chart is a composite charge with stacked bars to show the three types of cash flow overlayed with a line graph showing net change in cash.
+-   The historical cash flow chart is a composite chart with stacked bars to show the three types of cash flow overlayed with a line graph showing net change in cash. I chose this chart style after a discussion with an accountant friend who provided an example of what she prefers to see.
 -   The y axis is formatted with large number abbreviations for readability.
 -   If you hover over the chart a tooltip will display the detailed values.
 -   If there is no data available that text will be displayed instead of the chart.

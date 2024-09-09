@@ -55,7 +55,7 @@ export function CashFlowChart({ ticker }: { ticker: string }) {
                 <Bar name='Operating' dataKey='netCashProvidedByOperatingActivities' stackId='a' fill='#8884d8' />
                 <Bar name='Investing' dataKey='netCashUsedForInvestingActivites' stackId='a' fill='#82ca9d' />
                 <Bar name='Financing' dataKey='netCashUsedProvidedByFinancingActivities' stackId='a' fill='#82999d' />
-                <Line name='Net Cashflow' type='monotone' dataKey='netChangeInCash' stroke='#ff7300' />
+                <Line name='Net Cash Flow' type='monotone' dataKey='netChangeInCash' stroke='#ff7300' />
             </ComposedChart>
         </ResponsiveContainer>
     ) : (
