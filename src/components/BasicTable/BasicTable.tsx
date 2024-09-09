@@ -4,8 +4,8 @@ import TableCell from '@mui/material/TableCell'
 import TableContainer from '@mui/material/TableContainer'
 import TableHead from '@mui/material/TableHead'
 import TableRow from '@mui/material/TableRow'
-import Paper from '@mui/material/Paper'
 import { CompanyDataType } from '../../hooks/useGetCompanyData'
+import './BasicTable.css'
 
 export default function BasicTable({
     data,
@@ -15,8 +15,8 @@ export default function BasicTable({
     handleRowClick: (row: CompanyDataType) => void
 }) {
     return (
-        <TableContainer component={Paper}>
-            <Table sx={{ minWidth: 650 }} aria-label='simple table'>
+        <TableContainer className='tableContainer'>
+            <Table sx={{ maxWidth: 900 }} aria-label='simple table'>
                 <TableHead>
                     <TableRow>
                         <TableCell>Company Name</TableCell>
@@ -27,19 +27,14 @@ export default function BasicTable({
                 </TableHead>
                 <TableBody>
                     {data.map((row) => (
-                        <TableRow
-                            onClick={() => handleRowClick(row)}
-                            hover
-                            key={row.symbol}
-                            sx={{
-                                '&:last-child td, &:last-child th': { border: 0 }
-                            }}
-                        >
+                        <TableRow onClick={() => handleRowClick(row)} hover key={row.symbol} className='row'>
                             <TableCell component='th' scope='row'>
                                 {row.name}
                             </TableCell>
                             <TableCell align='center'>{row.symbol}</TableCell>
-                            <TableCell align='right'>{row.address}</TableCell>
+                            <TableCell align='right' sx={{ whiteSpace: 'pre-line' }}>
+                                {row.address}
+                            </TableCell>
                             <TableCell align='right'>{row.stockExchange}</TableCell>
                         </TableRow>
                     ))}

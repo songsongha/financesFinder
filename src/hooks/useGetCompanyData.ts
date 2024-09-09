@@ -1,6 +1,7 @@
 import * as React from 'react'
 import { useQuery } from 'react-query'
 import { getGeneralData, getProfile } from '../utils/api'
+import { formatAddress } from '../utils/helpers'
 
 export type CompanyDataType = {
     symbol: string
@@ -45,7 +46,7 @@ export const useGetCompanyData = (search: string) => {
                     symbol,
                     name,
                     stockExchange: exchangeShortName,
-                    address: profile?.address,
+                    address: formatAddress(profile?.address, profile?.city, profile?.country),
                     price: profile?.price,
                     currency: profile?.currency
                 }
