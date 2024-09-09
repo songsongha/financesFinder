@@ -34,7 +34,7 @@ The app a create-vite project built with React and Typescript. It consists of th
 
 ### Data Management
 
-Data is pulled from the [https://site.financialmodelingprep.com/developer/docs](Financial Modeling Prep) site.
+Data is pulled from https://site.financialmodelingprep.com/developer/docs/
 
 -   React Query is used to cache data so that load time are faster for the user.
 -   A custom hook was created to combine the data from the general company api (which allows for search by company name and by stock symbol) with more detailed company information such as the address and current stock price.
